@@ -1,0 +1,890 @@
+body {
+  /* background-color: tan; */
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+
+.w-100 {
+  width: 100% !important;
+}
+
+.navbar {
+  width: 100% !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  background-color: #f8f8f8;
+  box-shadow: 0 2px 4px rgb(212, 212, 212);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo p {
+  font-family: "Orelega One";
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.logo img {
+  width: 30px;
+  margin-top: -11px;
+}
+
+
+.contanir {
+  width: 100% !important;
+  display: flex;
+  margin: 0 0 0 -800px;
+}
+
+.new-style a {
+  text-decoration: none;
+  color: #000;
+}
+
+.style2 a {
+  text-decoration: none;
+  color: #fff;
+}
+
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+  font-family: "Inter";
+  font-weight: 900;
+  padding: 0 5px;
+}
+
+.nav-links a.active-but {
+  font-weight: 600;
+}
+
+.nav-links a#but {
+  font-weight: 900;
+  color: #0099ff;
+}
+
+.nav-links a.active {
+  font-weight: bold;
+}
+
+.nav-icons {
+  display: flex;
+  gap: 20px;
+  font-size: 18px;
+}
+
+.nav-icons i {
+  cursor: pointer;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+
+
+
+/*      first part      */
+.carousel-caption {
+  margin-bottom: 88px;
+}
+
+.carousel-caption h1 {
+  text-align: left;
+  margin-left: -80px;
+  margin-bottom: 50px;
+
+}
+
+.carousel-indicators [data-bs-target] {
+  width: 1rem;
+  height: 1rem;
+  border: solid #000 1px;
+  background-color: #000;
+}
+
+#buttom {
+  background-color: #fff;
+
+}
+
+#buttom:hover [data-bs-theme=light] {
+  background-color: #050505;
+}
+
+.carousel-indicators {
+  margin-bottom: -20px;
+}
+
+.new-style {
+  background: var(--add-to-cart, #ffffff);
+  border-radius: 5px;
+  padding: 10px 11px;
+  border: 2px solid #ffffff;
+  color: #000000;
+  font-weight: 600;
+  font-size: 14px;
+  font-family: "Abhaya Libre";
+}
+
+.new-style i {
+  margin-left: 10px;
+}
+
+.style1 {
+  background: var(--add-to-cart, #ffffff);
+  border: 2px solid #ffffff;
+  margin-right: 80px;
+  font-family: "Abhaya Libre";
+}
+
+.main-style {
+  font-weight: 600;
+  font-size: 14px;
+  font-family: "Abhaya Libre";
+  border-radius: 5px;
+  padding: 5px 69px;
+}
+
+.style2 {
+  background: var(--Primary-Color, #2D8EBB);
+  color: #000000;
+  border: 2px solid #2D8EBB;
+  font-family: "Abhaya Libre";
+}
+
+
+/*     Why-Plunge  section     */
+.Why-Plunge {
+  margin-top: 90px;
+  font-family: "inter";
+  text-align: center;
+}
+
+.Why-Plunge h2 {
+  font-size: 36px;
+  font-weight: 800;
+}
+
+.Why-Plunge p {
+  font-family: "Abhaya Libre";
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* .center{
+         text-align: center;
+       } */
+.match {
+  position: relative;
+}
+
+.match img {
+  position: absolute;
+  left: 0;
+}
+
+.Why-Plunge-item {
+  position: relative;
+}
+
+.Why-Plunge-item img {
+  width: 42.72px;
+  height: 42.72px;
+  position: absolute;
+  right: 0;
+}
+
+.Why-Plunge-item h3 {
+  font-weight: 400;
+  font-size: 18px;
+  font-family: "Orelega One";
+}
+
+.Why-Plunge-item p {
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Abhaya Libre";
+}
+
+.like {
+  width: 30%;
+}
+
+.like img {
+  width: 100%;
+}
+
+.contain {
+  margin: auto;
+  width: 80%;
+}
+
+.item-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  /* مسافة بين العناصر */
+  justify-content: space-between;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.Why-Plunge-item {
+  flex: 1 1 calc(33.33% - 20px);
+  /* كل عنصر ياخد تقريبا تلت العرض ناقص المسافة */
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+
+
+/*          img-section              */
+/* .container{
+        width: 80%;
+       } */
+.holder {
+  display: flex;
+  margin-top: 100px;
+  gap: 10px;
+  justify-content: center;
+}
+
+.image-holder {
+  width: 39%;
+  overflow: hidden;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 100px 20px;
+  border-end-end-radius: 20%;
+}
+
+.image-holder img {
+  width: 100%;
+  z-index: 0;
+  position: relative;
+}
+
+.main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-bottom-right-radius: 1px;
+  padding-right: 70px;
+}
+
+.star-img {
+  position: absolute;
+  right: 0;
+  left: 500px;
+}
+
+.text-slid {
+  font-family: "Orelega One";
+  margin-left: 8px;
+  margin-top: 40px;
+}
+
+.text-slid h4 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0058AF;
+  font-family: "Abhaya Libre";
+}
+
+.text-slid p {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "Abhaya Libre";
+}
+
+.first-text p {
+  text-align: left;
+  margin-left: 50px;
+}
+
+.second-text {
+  text-align: left;
+  margin-left: 40px;
+}
+
+.second-text img {
+  position: absolute;
+  left: -30px;
+  top: 25px;
+  width: 60px;
+  height: 60px;
+}
+
+.third-text {
+  text-align: left;
+  margin-left: 40px;
+}
+
+.rab {
+  position: relative;
+}
+
+.hold {
+  position: relative;
+}
+
+.third-text img {
+  position: absolute;
+  left: -40px;
+  top: 0;
+  width: 76px;
+  height: 90px;
+}
+
+
+
+
+/*         text section             */
+.container {
+  width: 80%;
+}
+
+.text-bold {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 150px;
+  gap: 20px;
+  padding: 0 10px;
+  overflow-x: hidden;
+}
+
+.text-bold h4 {
+  font-size: 18px;
+  font-weight: 900;
+  font-family: "Inter";
+  margin-bottom: 40px;
+}
+
+.text-bold p {
+  font-family: "Abhaya Libre";
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+}
+
+.expert-staff img {
+  height: 100px;
+  margin-bottom: 50px;
+}
+
+.education img {
+  height: 100px;
+  margin-bottom: 50px;
+}
+
+.structuring img {
+  height: 100px;
+  margin-bottom: 50px;
+}
+
+.education p {
+  text-align: left;
+  width: 90%;
+}
+
+.expert-staff p {
+  text-align: left;
+
+}
+
+.structuring p {
+  text-align: left;
+}
+
+.text-shad {
+  box-shadow: 1px 1px 5px #939393;
+  padding: 20px;
+  flex: 1 1 300px;
+  /* العنصر بياخد أقل حاجة 300px ولو فيه مساحة بياخد أكتر */
+  max-width: 330px;
+
+}
+
+.text-bold h4 {
+  font-size: 20px;
+  font-weight: 900;
+  font-family: "Abhaya Libre";
+  margin-bottom: 20px;
+}
+
+.expert-staff {
+  margin: 0 10px;
+  padding: 0 5px;
+}
+
+.education {
+  margin: 0 10px;
+  padding: 0 5px;
+}
+
+.structuring {
+  margin: 0 20px;
+  padding: 0 5px;
+}
+
+
+
+
+/*          img section         */
+.good-diving {
+  background-color: rgb(223, 180, 223);
+}
+
+.good-diving img {
+  width: 100%;
+}
+
+.holding {
+  width: 100%;
+  margin-top: 90px;
+}
+
+.good-diving {
+  position: relative;
+  /* font-family: "Orelega One"; */
+}
+
+.good-diving h2 {
+  font-size: 36px;
+  font-weight: 800;
+}
+
+.good-diving p {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.text-good {
+  position: absolute;
+  top: 0;
+  text-align: left;
+  color: #fff;
+  margin-top: 200px;
+  margin-left: 55px;
+  font-family: "Abhaya Libre";
+}
+
+.new-but {
+  padding: 9px 45px;
+  margin-top: 15px;
+}
+
+.img-section-but {
+  font-family: "Abhaya Libre";
+  font-weight: 400;
+  font-size: 16px;
+}
+
+
+
+
+/*      photo diving       */
+.container {
+  width: 80%;
+  margin-top: 110px;
+}
+
+.diving-img {
+  display: flex;
+  gap: 20px;
+  text-align: center;
+}
+
+.diving-img img {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.but-main2 {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 100;
+  padding: 7px 25px;
+}
+
+.but-main {
+  color: #fff;
+  padding: 5px 57px;
+}
+
+.but-main3 {
+  padding: 7px 19px;
+  color: #fff;
+}
+
+.photo-diving-but {
+  font-family: "Abhaya Libre";
+  font-weight: 600;
+  font-size: 14px;
+}
+
+
+
+
+
+/*      join the PLUNGE       */
+.join-style {
+  padding: 8px 30px;
+}
+
+.good-diving {
+  font-family: "Abhaya Libre";
+}
+
+.size- {
+  margin-right: 20px;
+}
+
+.high-join {
+  margin-top: -100px;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.for-divers img {
+  margin-bottom: 14px;
+}
+
+.for-divers h5 {
+  font-family: "Abhaya Libre";
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.but-main4 {
+  padding: 6px 45px;
+  color: #fff;
+  font-family: "Abhaya Libre";
+}
+
+.join-but {
+  font-family: "Abhaya Libre";
+  font-weight: 600;
+  font-size: 14px;
+}
+
+
+
+
+
+
+/*         destinations       */
+.content-text {
+  top: 0;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.for-divers h6 {
+  font-family: "Abhaya Libre";
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.content-text h2 {
+  font-family: "inter";
+  font-weight: 900;
+  font-size: 36px;
+}
+
+.content-text p {
+  font-family: "content-text";
+}
+
+
+
+/*      diving equipment     */
+.text-shop h2 {
+  font-family: "Abhaya Libre";
+  font-weight: 900;
+  font-size: 36px;
+}
+
+.text-shop {
+  top: -120px;
+}
+
+.equipment-but {
+  font-family: "Abhaya Libre";
+  font-weight: 400;
+  font-size: 16px;
+}
+
+
+
+
+/*        our professional       */
+.container {
+  width: 80%;
+}
+
+.text {
+  text-align: center;
+}
+
+
+/*         our-profitional        */
+.but-profition {
+  background-color: #2D8EBB;
+  font-family: "Abhaya Libre";
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.card-img {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.text h4 {
+  font-family: Abhaya Libre;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.text button {
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+.text p {
+  font-family: "Abhaya Libre";
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.card-img h5 {
+  font-family: "Orelega One";
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.card-img p {
+  font-family: "Abhaya Libre";
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.card {
+  box-shadow: 5px 5px 6px #d2d2d2;
+}
+
+
+
+
+
+/* Footer */
+footer {
+  margin-top: 100px;
+  color: white;
+  padding: 40px 0 20px;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+footer .footer-background img {
+  width: 100%;
+  height: 100%;
+}
+
+.footer-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  /* Place background behind content */
+  /* margin-left: 535px; */
+}
+
+.footer-content {
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+  /* Place content above background */
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: -150px;
+  top: 35px;
+}
+
+.footer-logo p {
+  margin-left: -47px;
+  /* top: -50px; */
+  font-size: 21px;
+  font-weight: 300;
+  font-family: "Orelega One";
+}
+
+.footer-logo img {
+  width: 47px;
+  height: 45px;
+  margin-top: -10px;
+}
+
+.social img {
+  width: 36px;
+}
+
+.social {
+  position: absolute;
+  bottom: 45px;
+  left: 35px;
+  display: flex;
+  gap: 35px;
+  margin-left: -155px;
+}
+
+.footer-i {
+  align-items: center;
+  position: relative;
+}
+
+.footer-logo img {
+  width: 140px;
+}
+
+
+
+
+/* Trainings Section */
+/* .trainings {
+width: 25%;
+} */
+
+.trainings-title {
+  /* width: 137px;
+height: 40px; */
+  font-family: 'Orelega One';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  color: rgba(255, 255, 255, 1);
+  margin-bottom: 20px;
+  margin-top: 42px;
+  margin-left: 2px;
+}
+
+.trainings ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.trainings ul li {
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+
+.trainings a {
+  color: white;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: "Orelega One";
+  text-decoration: none;
+}
+
+.footer-bottom {
+  width: 60%;
+  margin: 35px auto 0;
+  padding: 15px 20px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: "Orelega One";
+  color: rgb(255, 255, 255);
+  position: relative;
+  z-index: 2;
+  bottom: -20px;
+}
+
+.quick-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: "Orelega One";
+}
+
+.quick-links-title {
+  font-family: 'Orelega One';
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 100%;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  color: rgba(255, 255, 255, 1);
+  margin-bottom: 20px;
+  margin-left: 11px;
+}
+
+.quick-links ul li {
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+
+.quick-links {
+  list-style-type: disc;
+  margin-left: -100px;
+  margin-top: 42px;
+}
+
+
+.defrint a {
+  color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}

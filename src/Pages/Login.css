@@ -1,0 +1,389 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+}
+
+.loginbody {
+    position: relative;
+    background: url('/assets/images/login.jpg') no-repeat center center fixed;
+    background-size: cover;
+    animation: bgMove 20s ease-in-out infinite alternate;
+}
+
+@keyframes bgMove {
+    0% {
+        background-position: center center;
+    }
+
+    100% {
+        background-position: center bottom;
+    }
+}
+
+.cover {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    width: 183px;
+    height: 56.26px;
+    z-index: 3;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+}
+
+.top-bar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30%;
+    height: 80px;
+    background-color: #2D8EBB4D;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 40px;
+    gap: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+}
+
+.btn-signin {
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    border: 2px solid rgba(248, 239, 239, 0);
+}
+
+.btn-signup {
+    background-color: rgba(255, 255, 255, 0);
+    color: black;
+    border: 2px solid rgba(0, 0, 0, 0);
+}
+
+.close-icon {
+    font-size: 35px;
+    color: black;
+    cursor: pointer;
+}
+
+.wave1,
+.wave2,
+.wave3 {
+    position: absolute;
+}
+
+.wave1 {
+    width: 110%;
+    height: 90%;
+    z-index: 1;
+}
+
+.wave1img {
+    width: 69%;
+    height: 100%;
+    margin-right: 25%;
+    margin-top: 0%;
+}
+
+.wave2 {
+    margin-right: 79%;
+    margin-top: -114;
+    z-index: 2;
+}
+
+.wave2img {
+    width: 78.9%;
+}
+
+.wave3 {
+    width: 17%;
+    margin-right: 85%;
+    margin-top: -10.5%;
+    z-index: 0;
+}
+
+.wave3img {
+    width: 100%;
+}
+
+.bubble {
+    position: absolute;
+    bottom: -100px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: rise 10s infinite ease-in;
+    filter: blur(1px);
+}
+
+.bubble1 {
+    width: 20px;
+    height: 20px;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.bubble2 {
+    width: 35px;
+    height: 35px;
+    left: 30%;
+    animation-delay: 2s;
+}
+
+.bubble3 {
+    width: 15px;
+    height: 15px;
+    left: 50%;
+    animation-delay: 1s;
+}
+
+.bubble4 {
+    width: 25px;
+    height: 25px;
+    left: 70%;
+    animation-delay: 3s;
+}
+
+.bubble5 {
+    width: 30px;
+    height: 30px;
+    left: 85%;
+    animation-delay: 4s;
+}
+
+.bubble6 {
+    width: 10px;
+    height: 10px;
+    left: 25%;
+    animation-delay: 5s;
+}
+
+.bubble7 {
+    width: 18px;
+    height: 18px;
+    left: 40%;
+    animation-delay: 6s;
+}
+
+.bubble8 {
+    width: 12px;
+    height: 12px;
+    left: 60%;
+    animation-delay: 7s;
+}
+
+.bubble9 {
+    width: 22px;
+    height: 22px;
+    left: 75%;
+    animation-delay: 8s;
+}
+
+@keyframes rise {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-130vh) scale(1.4);
+        opacity: 0;
+    }
+}
+
+.input-container {
+    position: absolute;
+    top: 7%;
+    left: 42%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0);
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    z-index: 10;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    padding-left: 35px;
+}
+
+.input-container input[type="text"],
+.input-container input[type="password"] {
+    direction: rtl;
+    text-align: left;
+}
+
+.input-container .input-group {
+    position: relative;
+}
+
+.input-container .input-group label {
+    position: absolute;
+    top: -15px;
+    left: 10px;
+    /* تم تحريك كلمة "Email" إلى اليمين */
+    font-size: 15px;
+    font-weight: bold;
+    color: #000000;
+    font-family: 'Inter', sans-serif;
+    text-align: left;
+}
+
+.input-container .email-icon,
+.input-container .password-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #555;
+}
+
+.input-container .eye-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #555;
+    cursor: pointer;
+}
+
+.login-btn {
+    background-color: #2D8EBB;
+    color: white;
+    border: none;
+    width: 100%;
+    height: 38px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(45, 142, 187, 0.4);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    margin-top: 20px;
+}
+
+.login-btn::before,
+.login-btn::after {
+    content: "";
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+.login-btn::before {
+    top: -15px;
+    left: -15px;
+    width: 50px;
+    height: 50px;
+}
+
+.login-btn::after {
+    bottom: -20px;
+    right: -20px;
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.login-btn:hover {
+    background-color: #2479a1;
+    transform: translateY(-2px);
+}
+
+.login-btn:hover::before,
+.login-btn:hover::after {
+    transform: scale(1.1);
+}
+
+.input-container div {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.input-container div div {
+    display: inline-block;
+}
+
+.forgot-password {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: left;
+    text-decoration: underline;
+    background-color: #00408000;
+    color: #004080;
+    cursor: pointer;
+    display: block;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.or-signin-text {
+    text-align: center;
+    margin: 10px 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    color: #555;
+    padding: 5px;
+}
+
+
+
+.social-icons {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.social-icons i {
+    font-size: 30px;
+    margin: 0 10px;
+    cursor: pointer;
+}
