@@ -5,41 +5,71 @@ import AxiosInstance from "../utils/AxiosInstance";
 const Profile = () => {
   const { user, logoutUser } = useContext(AuthContext);
   const [profile, setProfile] = useState([]);
+  const [orders, setOrders] = useState([]);
 
   const getUserProfile = async () => {
     let response = await AxiosInstance.get(`/users/${user.user_id}/`);
     setProfile(response.data);
     console.log(response.data);
   };
+
+  const getUserOrders = async () => {
+    try {
+      let response = await AxiosInstance.get(`/orders/`); // Assuming your API is setup to return orders for the logged-in user
+      setOrders(response.data);
+    } catch (error) {
+      console.error("Error fetching orders:", error);
+      toast.error("Error fetching orders");
+    }
+  };
   useEffect(() => {
     getUserProfile();
+    getUserOrders();
   }, []);
   return (
     <section
       className="d-flex justify-content-center align-items-center my-0"
       style={{ backgroundColor: "#5f59f7" }}
     >
-      <div className="container py-3">
+      <div className="py-3">
         <div className="row h-50">
           <div className="col col-xl-12">
             <div className="card mb-3" style={{ borderRadius: 15 }}>
               <div className="card-body p-4">
                 <div className="row">
                   <div className="col-8">
-                    
-                <h3 className="mb-3">
-                  {profile.first_name} {profile.last_name}
-                </h3>
+                    <h3 className="mb-3">
+                      {profile.first_name} {profile.last_name}
+                    </h3>
                   </div>
                   <div className="col-4 text-end">
-                    <button className="btn btn-outline-dark" onClick={logoutUser}>Logout</button>
+                    <button
+                      className="btn btn-outline-dark"
+                      onClick={logoutUser}
+                    >
+                      Logout
+                    </button>
                   </div>
                 </div>
-                <p className="small mb-0">
-                  <i className="far fa-star fa-lg" />{" "}
-                  <span className="mx-2">|</span> Order No.
-                  <strong>#15556008</strong> on 11 April , 2021 <span className="text-primary">Details</span>
-                </p>
+                <div className="orders-list">
+                  {orders.length > 0 ? (
+                    orders.map((order) => (
+                      <div className="order-item" key={order.id}>
+                        <p>
+                          <strong>Order #{order.id}</strong> -{" "}
+                          {order.created_at}
+                        </p>
+                        <p>Total: ${order.total_price}</p>
+                        <p>Status: {order.paid ? "Paid" : "Pending"}</p>
+                        <a href={`#`} className="text-primary">
+                          View Order Details
+                        </a>
+                      </div>
+                    ))
+                  ) : (
+                    <p>No orders placed yet.</p>
+                  )}
+                </div>
                 <hr className="my-4" />
                 <div className="d-flex justify-content-start align-items-center">
                   <p className="mb-0 text-uppercase">
@@ -47,7 +77,7 @@ const Profile = () => {
                     <span className="text-muted small">settings</span>
                   </p>
                   <p className="mb-0 text-uppercase">
-                    <i className="fas fa-heart ms-4 me-2 text-danger"  />{" "}
+                    <i className="fas fa-heart ms-4 me-2 text-danger" />{" "}
                     <span className="text-muted small">Favorite Items</span>
                   </p>
                   <p className="mb-0 text-uppercase">

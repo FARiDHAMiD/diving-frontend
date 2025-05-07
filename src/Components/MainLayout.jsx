@@ -15,8 +15,8 @@ const MainLayout = () => {
   return (
     <div className="p-2">
       {!hideLayout && <Nav />}
-      <Outlet />
       <ToastContainer className={"text-center"} />
+      <Outlet />
       {!hideLayout && <Footer />}
     </div>
   );

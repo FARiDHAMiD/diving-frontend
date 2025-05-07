@@ -56,14 +56,14 @@ const Products = () => {
           <div className="col-6">
             
         <select className="form-control" value={price} onChange={(e) => setPrice(e.target.value)}>
-          <option value="All">Sort by Price</option>
+          <option value="All">Price</option>
           <option value="Low to High">Low to High</option>
           <option value="High to Low">High to Low</option>
         </select>
           </div>
           <div className="col-6">
         <select className="form-control" value={stock} onChange={(e) => setStock(e.target.value)}>
-          <option value="All">All</option>
+          <option value="All">Available</option>
           <option value="In Stock">In Stock</option>
           <option value="Out of Stock">Out of Stock</option>
         </select>

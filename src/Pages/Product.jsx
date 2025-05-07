@@ -48,6 +48,9 @@ const Product = () => {
     };
 
     localStorage.setItem("cart", JSON.stringify([...existingCart, newItem]));
+    // 🔔 Notify badge count to update
+    window.dispatchEvent(new Event("cartUpdated"));
+
     alert("Product added to cart!");
   };
 

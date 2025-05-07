@@ -19,7 +19,6 @@ const Course = () => {
   const getCourse = async () => {
     let response = await AxiosInstance.get(`courses/${id}/`);
     setCourse(response.data);
-    console.log(response.data.features);
   };
 
   const handleAddToCart = () => {
@@ -27,6 +26,7 @@ const Course = () => {
       navigate("/login");
       return;
     }
+
     const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
 
     const isAlreadyInCart = existingCart.some((item) => item.id === course.id);
@@ -39,12 +39,16 @@ const Course = () => {
       id: course.id,
       title: course.title,
       image: course.image,
-      price: course.price, // add this field if you have pricing
-      quantity: 1, // optional: courses usually have quantity = 1
+      price: course.price,
+      quantity: 1,
     };
 
     const updatedCart = [...existingCart, newCartItem];
     localStorage.setItem("cart", JSON.stringify(updatedCart));
+
+    // 🔔 Notify badge count to update
+    window.dispatchEvent(new Event("cartUpdated"));
+
     alert("Added to cart!");
   };
 
