@@ -4,14 +4,16 @@ import "./course.css";
 import AxiosInstance from "../utils/AxiosInstance";
 import { Link } from "react-router-dom";
 import Spinner from "../Components/Spinner";
+import { toast } from "react-toastify";
 
 const Courses = () => {
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [filterApplied, setFilterApplied] = useState(false);
 
   // Filter states
-  const [level, setLevel] = useState("All");
-  const [price, setPrice] = useState("All");
+  const [level, setLevel] = useState("");
+  const [price, setPrice] = useState("");
   const [location, setLocation] = useState("All");
 
   const getCourses = async () => {
@@ -25,8 +27,8 @@ const Courses = () => {
 
   // Filtering logic
   const filteredCourses = courses
-    .filter((course) => level === "All" || course.level === level)
-    .filter((course) => location === "All" || course.location === location)
+    .filter((course) => level === "" || course.level === level)
+    .filter((course) => location === "" || course.location === location)
     .sort((a, b) => {
       if (price === "Low to High") return a.price - b.price;
       if (price === "High to Low") return b.price - a.price;
@@ -54,27 +56,29 @@ const Courses = () => {
         {/* Add this below your Filter section, or wherever appropriate */}
         <Scripts
           level={level}
-          setLevel={setLevel}
+          setLevel={(val) => {
+            setLevel(val);
+            setFilterApplied(true);
+          }}
           price={price}
-          setPrice={setPrice}
+          setPrice={(val) => {
+            setPrice(val);
+            setFilterApplied(true);
+          }}
           location={location}
-          setLocation={setLocation}
+          setLocation={(val) => {
+            setLocation(val);
+            setFilterApplied(true);
+          }}
         />
-
         {/* Filtered Results  */}
-        <section className="courses" id="courses">
-          <h2>Filtered Courses</h2>
-          {loading ? (
-            <Spinner />
-          ) : (
+        {filterApplied && (
+          <section className="courses" id="courses">
+            <h2>Filtered Courses</h2>
             <div className="row">
               {filteredCourses.map((course) => (
                 <div key={course.id} className="col-md-4">
                   <div className="course-card">
-                    <i
-                      className="fa-regular fa-heart heart"
-                      onClick={(e) => window.toggleHeart(e.target)}
-                    ></i>
                     <div className="row no-gutters">
                       <div className="col-md-6">
                         <img
@@ -110,8 +114,8 @@ const Courses = () => {
                 </div>
               ))}
             </div>
-          )}
-        </section>
+          </section>
+        )}
 
         {/* Example Course Section (shortened) */}
         <section className="courses" id="courses">
@@ -126,10 +130,6 @@ const Courses = () => {
                   .map((course) => (
                     <div key={course.id} className="col-md-4">
                       <div className="course-card">
-                        <i
-                          className="fa-regular fa-heart heart"
-                          onClick={(e) => window.toggleHeart(e.target)}
-                        ></i>
                         <div className="row no-gutters">
                           <div className="col-md-6">
                             <img
@@ -186,10 +186,6 @@ const Courses = () => {
                   .map((course) => (
                     <div key={course.id} className="col-md-4">
                       <div className="course-card">
-                        <i
-                          className="fa-regular fa-heart heart"
-                          onClick={(e) => window.toggleHeart(e.target)}
-                        ></i>
                         <div className="row no-gutters">
                           <div className="col-md-6">
                             <img
@@ -246,10 +242,6 @@ const Courses = () => {
                   .map((course) => (
                     <div key={course.id} className="col-md-4">
                       <div className="course-card">
-                        <i
-                          className="fa-regular fa-heart heart"
-                          onClick={(e) => window.toggleHeart(e.target)}
-                        ></i>
                         <div className="row no-gutters">
                           <div className="col-md-6">
                             <img

@@ -1,16 +1,39 @@
 import { useContext, useEffect, useState } from "react";
 import AuthContext from "../Context/AuthContext";
 import AxiosInstance from "../utils/AxiosInstance";
+import { toast } from "react-toastify";
 
 const Profile = () => {
   const { user, logoutUser } = useContext(AuthContext);
   const [profile, setProfile] = useState([]);
   const [orders, setOrders] = useState([]);
 
+  const [showFavoritesModal, setShowFavoritesModal] = useState(false);
+  const [favoriteItems, setFavoriteItems] = useState([]);
+
+  const handleOpenFavorites = async () => {
+    try {
+      const response = await AxiosInstance.get("/profiles/me/");
+      setFavoriteItems(response.data.favorites); // assuming nested CourseSerializer
+      setShowFavoritesModal(true);
+    } catch (error) {
+      toast.error("Error fetching favorites:", error);
+    }
+  };
+
+  const handleToggleFavorite = async (courseId) => {
+    try {
+      await AxiosInstance.post(`/profiles/${courseId}/toggle_favorite/`);
+      handleOpenFavorites(); // refresh favorites
+    } catch (error) {
+      toast.error("Error toggling favorite:", error);
+    }
+  };
+
   const getUserProfile = async () => {
     let response = await AxiosInstance.get(`/users/${user.user_id}/`);
     setProfile(response.data);
-    console.log(response.data);
+    // console.log(response.data);
   };
 
   const getUserOrders = async () => {
@@ -78,8 +101,72 @@ const Profile = () => {
                   </p>
                   <p className="mb-0 text-uppercase">
                     <i className="fas fa-heart ms-4 me-2 text-danger" />{" "}
-                    <span className="text-muted small">Favorite Items</span>
+                    <span
+                      className="text-muted small"
+                      onClick={handleOpenFavorites}
+                      style={{ cursor: "pointer" }}
+                    >
+                      Favorite Items
+                    </span>
                   </p>
+                  {showFavoritesModal && (
+                    <div
+                      className="modal show d-block"
+                      tabIndex="-1"
+                      role="dialog"
+                      style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
+                    >
+                      <div className="modal-dialog modal-lg" role="document">
+                        <div className="modal-content">
+                          <div className="modal-header">
+                            <h5 className="modal-title">Favorite Items</h5>
+                            <button
+                              type="button"
+                              className="btn-close"
+                              onClick={() => setShowFavoritesModal(false)}
+                            ></button>
+                          </div>
+                          <div className="modal-body">
+                            {favoriteItems.length > 0 ? (
+                              favoriteItems.map((item) => (
+                                <div
+                                  key={item.id}
+                                  className="d-flex justify-content-between align-items-center border-bottom py-2"
+                                >
+                                  <div>
+                                    <strong>{item.title}</strong>
+                                    <p className="mb-1">
+                                      {item.description?.slice(0, 80)}...
+                                    </p>
+                                  </div>
+                                  <button
+                                    className="btn btn-sm btn-outline-danger"
+                                    onClick={() =>
+                                      handleToggleFavorite(item.id)
+                                    }
+                                  >
+                                    <i className="fas fa-trash" />
+                                  </button>
+                                </div>
+                              ))
+                            ) : (
+                              <p>No favorite items found.</p>
+                            )}
+                          </div>
+                          <div className="modal-footer">
+                            <button
+                              type="button"
+                              className="btn btn-secondary"
+                              onClick={() => setShowFavoritesModal(false)}
+                            >
+                              Close
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
                   <p className="mb-0 text-uppercase">
                     <i className="fas fa-ellipsis-h ms-4 me-2" />{" "}
                     <span className="text-muted small">program link</span>

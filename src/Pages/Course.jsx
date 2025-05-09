@@ -3,12 +3,16 @@ import "./course.css";
 import AxiosInstance from "../utils/AxiosInstance";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import AuthContext from "../Context/AuthContext";
+import { toast } from "react-toastify";
 
 const Course = () => {
   const { id } = useParams();
   const { user } = useContext(AuthContext); // assuming 'user' holds the current user
   const [courses, setCourses] = useState([]);
   const [course, setCourse] = useState({});
+
+  const [isFavorite, setIsFavorite] = useState(false);
+
   const navigate = useNavigate();
 
   const getCourses = async () => {
@@ -52,10 +56,48 @@ const Course = () => {
     alert("Added to cart!");
   };
 
+  const fetchUserProfile = async () => {
+    try {
+      const response = await AxiosInstance.get("profiles/me/");
+      const favorites = response.data.favorites || [];
+
+      // Check if the current course is in the favorites list by comparing their ids
+      setIsFavorite(favorites.some((fav) => fav.id === course.id));
+    } catch (error) {
+      toast.error("Failed to fetch user profile:", error);
+    }
+  };
+
   useEffect(() => {
     getCourses();
     getCourse();
   }, [id]);
+
+  useEffect(() => {
+    if (course.id) {
+      fetchUserProfile();
+    }
+  }, [course.id]);
+
+  const handleToggleFavorite = async () => {
+    if (!user) {
+      navigate("/login");
+      return;
+    }
+
+    try {
+      const response = await AxiosInstance.post(
+        `profiles/${course.id}/toggle_favorite/`
+      );
+      if (response.data.status === "added") {
+        setIsFavorite(true);
+      } else if (response.data.status === "removed") {
+        setIsFavorite(false);
+      }
+    } catch (error) {
+      console.error("Failed to toggle favorite:", error);
+    }
+  };
 
   return (
     <div className="container py-4">
@@ -157,7 +199,12 @@ const Course = () => {
               >
                 Add to Cart
               </button>
-              <i className="fas fa-heart text-danger fs-4 cursor-pointer" />
+              <i
+                className={`fas fa-heart fs-4 cursor-pointer ${
+                  isFavorite ? "text-danger" : "text-secondary"
+                }`}
+                onClick={handleToggleFavorite}
+              />
             </div>
           </div>
 
@@ -171,38 +218,6 @@ const Course = () => {
                 </li>
               ))}
             </ul>
-          </div>
-
-          {/* Gear section */}
-          <div className="bg-light p-4 rounded shadow-sm mb-5">
-            <h4>Don't Have Your Own Gear Yet?</h4>
-            <p>
-              We Have High Quality Diving Equipment.{" "}
-              <Link
-                to="/products"
-                className="text-primary text-decoration-underline"
-              >
-                Shop Now
-              </Link>
-            </p>
-          </div>
-
-          {/* Images */}
-          <div className="row mb-5">
-            <div className="col-6">
-              <img
-                src="image 998.png"
-                alt="Diving"
-                className="img-fluid rounded shadow-sm"
-              />
-            </div>
-            <div className="col-6">
-              <img
-                src="OIP 47.png"
-                alt="Diving"
-                className="img-fluid rounded shadow-sm"
-              />
-            </div>
           </div>
 
           {/* Requirements & Learning Points */}
@@ -266,6 +281,21 @@ const Course = () => {
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* Gear section */}
+          <div className="bg-light p-4 rounded shadow-sm mb-5">
+            <h4>Don't Have Your Own Gear Yet?</h4>
+            <p>
+              We Have High Quality Diving Equipment.{" "}
+              <Link
+                target="_blank"
+                to="/products"
+                className="text-primary text-decoration-underline"
+              >
+                Shop Now
+              </Link>
+            </p>
           </div>
         </div>
       </div>

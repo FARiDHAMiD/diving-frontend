@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 
+const levels = ["Beginner", "Advanced", "Professional"];
+const prices = ["Low to High", "High to Low"];
+const locations = ["Dahab", "Sharm El Sheikh", "Hurghada", "Ras Mohamed"];
 const Scripts = ({
   level,
   setLevel,
@@ -8,10 +11,6 @@ const Scripts = ({
   location,
   setLocation,
 }) => {
-  const levels = ["Level", "Beginner", "Advanced", "Professional"];
-  const prices = ["Price", "Low to High", "High to Low"];
-  const locations = ["Location", "Dahab", "Sharm El Sheikh", "Hurghada"];
-
   return (
     <div>
       <div className="row">
